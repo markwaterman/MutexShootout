@@ -28,18 +28,18 @@ static_assert(!std::is_pointer<Val>::value, "LruCache of raw pointers not allowe
 
 public:
 
-	using Container = boost::bimaps::bimap<
-		boost::bimaps::unordered_set_of<Key, Hash, Equals>,
-		boost::bimaps::list_of<Val>
-	>;
+    using Container = boost::bimaps::bimap<
+        boost::bimaps::unordered_set_of<Key, Hash, Equals>,
+        boost::bimaps::list_of<Val>
+    >;
 
     using Lock = std::lock_guard<Mutex>;
 
     LruCache(size_t capacity) :
-		capacity_(capacity),
+        capacity_(capacity),
         container_(),
         mutex_()
-	{ 
+    { 
         assert(capacity > 0);
     }
 
@@ -120,7 +120,7 @@ public:
 
     
 private:
-	size_t capacity_;
+    size_t capacity_;
     Container container_;
     Mutex mutex_;
 };
