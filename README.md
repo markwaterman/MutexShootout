@@ -1,5 +1,7 @@
 # Yet another mutex shootout
 
+## Summary
+
 A quick benchmark that measures the performance of different mutex
 implementations when synchronizing access to an LRU cache. The goal is
 to answer 2 questions:
@@ -9,6 +11,9 @@ semi-realistic data structure under no contention?
 
 2. What kind of mutex performs best under heavy contention? (Fairness
 is not a concern.)
+
+[This post](http://www.markwaterman.net/post/cpp-mutex-shootout/)
+contains information and results of this benchmark.
 
 The LRU cache is implemented using Boost.Bimap, using a UUID as a key
 (hashed with MurmurHash3) to retrieve a 2KB buffer under a
