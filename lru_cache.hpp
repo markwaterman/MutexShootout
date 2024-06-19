@@ -6,7 +6,7 @@
 #include <boost/bimap.hpp>
 #include <boost/bimap/unordered_set_of.hpp>
 #include <boost/bimap/list_of.hpp>
-#include <boost/optional.hpp>
+#include <optional>
 #include <cassert>
 #include <memory>
 #include <mutex>
@@ -80,7 +80,7 @@ public:
 
     // Gets a boost::optional<V> associated with the given key and
     // makes it the most recently accessed if it exists.
-    boost::optional<Val> get(const Key& key)
+    std::optional<Val> get(const Key& key)
     {
         Lock l(mutex_);
 
@@ -95,7 +95,7 @@ public:
         else
         {
             // Not found.
-            return boost::none;
+	  return std::nullopt;
         }
     }
 
